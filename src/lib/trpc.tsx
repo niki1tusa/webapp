@@ -1,4 +1,4 @@
-import type {TrpcRouter} from '../../backend/src/trpc.ts'
+import type {TrcpRouter} from '@app/'
 import { createTRPCReact } from '@trpc/react-query';
 
 
