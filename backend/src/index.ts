@@ -1,6 +1,17 @@
-console.log("hi i am miki 17, or 18?")
-const fnc = e => {
-  return "hi" + e
-}
+import express from 'express'
+import * as trcpExpress from '@trpc/server/adapters/express'
+import { trpcRouter } from './trpc'
 
-fnc("niki")
+const app = express()
+app.get('/ping', (req, res)=>{
+    res.send('pong')
+})
+
+app.use('/trpc', trcpExpress.createExpressMiddleware({
+    router: trpcRouter
+}))
+
+
+app.listen(5433, ()=>{
+    console.info('listening at http://localhost:5433')
+})
